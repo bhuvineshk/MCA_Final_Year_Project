@@ -1,0 +1,86 @@
+﻿@page
+@model InsuraNex.Pages.Admin.Data.AddDataModel
+@using static InsuraNex.Pages.Shared._NotificationModel
+
+    <div class="bg-secondary bg-opacity-10 mb-5 py-3">
+        <div class="container ">
+            <h1>Add Customer Data</h1>
+        </div>
+    </div>
+
+    
+    <partial name="_Notification">
+   
+    <div>
+        <div class="container col-md-6 col-md-offset-6">
+            <form method="post">
+                <div class="col-4 mb-4">
+                    <button class="btn btn-danger" onclick="history.back()">Back</button>
+                </div>
+                <div class="mb-3">
+                    <label for="custName">Name</label>
+                    <input asp-for="AddCustomerDataReq.Name" type="text" class="form-control col-sm-3" id="custName" placeholder="Enter Name" required>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="custDOB">Date of Birth</label>
+                    <input type="date" class="form-control" id="custDOB" asp-for="AddCustomerDataReq.DOB"  required>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyDOC">Date of Commencement</label>
+                    <input asp-for="AddCustomerDataReq.DOC" type="date" class="form-control" id="policyDOC" required>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyName">Policy Plan Name</label>
+                    <input asp-for="AddCustomerDataReq.Plan" type="text" class="form-control" id="policyName" placeholder="Enter Policy Plan Name" required>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyExpirationDate">Policy Expiration Date</label>
+                    <input asp-for="AddCustomerDataReq.Plan_Exp_Date" type="date" class="form-control" id="policyExpirationDate" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="custOccupation">Occupation</label>
+                    <input asp-for="AddCustomerDataReq.Occupation" type="text" class="form-control" id="custOccupation" placeholder="Enter Occupation" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="custIncome">Annual Income</label>
+                    <input asp-for="AddCustomerDataReq.Income" type="number" class="form-control" id="custIncome" placeholder="Enter Annual Income" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="custCity">City</label>
+                    <input asp-for="AddCustomerDataReq.City" type="text" class="form-control" id="custCity" placeholder="Enter City" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="custContact">Contact No</label>
+                    <input asp-for="AddCustomerDataReq.Contact_No" type="text" class="form-control" id="custContact" placeholder="Enter Contact No" required>
+                </div>
+                
+               
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-secondary" type="reset">Reset</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-danger" onclick="history.back()">Cancel</button>
+                    </div>
+                </div>
+
+
+                    
+               
+            </form>
+
+        </div>
+
+    </div>
+

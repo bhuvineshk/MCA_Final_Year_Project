@@ -1,0 +1,80 @@
+﻿@page "{Id:Guid}"
+@model InsuraNex.Pages.Admin.Data.ViewModel
+@{
+
+}
+
+<div class="bg-secondary bg-opacity-10 mb-5 py-3">
+    <div class="container ">
+        <h1>View Customer Data</h1>
+    </div>
+</div>
+
+@if (Model.Customers != null)
+{
+    <div>
+        <div class="container col-md-6 col-md-offset-6">
+            <form method="post">
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
+                
+                    <button class="btn btn-warning" type="submit" asp-page-handler="EditCustomer">Edit</button>
+                </div>
+
+                <div class="mb-3">
+                    <label for="custName">Name</label>
+                    <input asp-for="Customers.Name" type="text" class="form-control col-sm-3" id="custName" readonly>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="custDOB">Date of Birth</label>
+                    <input type="date" class="form-control" id="custDOB" asp-for="Customers.DOB" readonly>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyDOC">Date of Commencement</label>
+                    <input asp-for="Customers.DOC" type="date" class="form-control" id="policyDOC" readonly>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyName">Policy Plan Name</label>
+                    <input asp-for="Customers.Plan" type="text" class="form-control" readonly id="policyName">
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyExpirationDate">Policy Expiration Date</label>
+                    <input readonly asp-for="Customers.Plan_Exp_Date" type="date" class="form-control" id="policyExpirationDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="custOccupation">Occupation</label>
+                    <input readonly asp-for="Customers.Occupation" type="text" class="form-control" id="custOccupation" placeholder="Enter Occupation">
+                </div>
+
+                <div class="mb-3">
+                    <label for="custIncome">Annual Income</label>
+                    <input readonly asp-for="Customers.Income" type="number" class="form-control" id="custIncome">
+                </div>
+
+                <div class="mb-3">
+                    <label for="custCity">City</label>
+                    <input readonly asp-for="Customers.City" type="text" class="form-control" id="custCity">
+                </div>
+
+                <div class="mb-3">
+                    <label for="custContact">Contact No</label>
+                    <input readonly asp-for="Customers.Contact_No" type="text" class="form-control" id="custContact" placeholder="Enter Contact No">
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+}
+
+

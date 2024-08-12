@@ -1,0 +1,61 @@
+﻿@page
+@model InsuraNex.Pages.Admin.Data.List_PolicyModel
+@{
+}
+
+
+
+<div class="bg-secondary bg-opacity-10 mb-5 py-3">
+    <div class="container ">
+        <h1>List of Insurance policy</h1>
+    </div>
+</div>
+
+<partial name="_Notification">
+
+    @if (Model.InsurancePlans != null)
+    {
+        <div class="container" method="get">
+            <table class="table-bordered col-md-9">
+                <caption>List of users</caption>
+                <thead>
+                    <tr class="bg-primary  text-center">
+                        <td>PolicyName</td>
+                        <td>PlanType</td>
+                        <td>SumAssured</td>
+                        <td>Term</td>
+                        <td>EffectiveDate</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var insurance in Model.InsurancePlans)
+                    {
+                        <tr>
+
+                            <td>
+                                <a href="/Admin/Data/View_Policy/@insurance.Id">
+                                    @insurance.PolicyName
+                                </a>
+                            </td>
+                            <td>@insurance.PlanType</td>
+                            <td>@insurance.SumAssured</td>
+                            <td>@insurance.Term</td>
+                            <td>@insurance.EffectiveDate</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    }
+
+    else
+    {
+        <div class="container">
+
+            <h1>Insurance Plan Data not available</h1>
+        </div>
+    }

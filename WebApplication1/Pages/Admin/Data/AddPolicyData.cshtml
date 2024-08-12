@@ -1,0 +1,154 @@
+﻿@page
+@model InsuraNex.Pages.Admin.Data.AddPolicyDataModel
+@using static InsuraNex.Pages.Shared._NotificationModel
+
+<div class="bg-secondary bg-opacity-10 mb-5 py-3">
+    <div class="container ">
+        <h1>Add Policy Data</h1>
+    </div>
+</div>
+
+
+<partial name="_Notification">
+
+    <div>
+        <div class="container col-md-6 col-md-offset-6">
+            <form method="post">
+                <div class="col-4 mb-4">
+                    <button class="btn btn-danger" onclick="history.back()">Back</button>
+                </div>
+                <div class="mb-3">
+                    <label for="polName">Policy Name</label>
+                    <input asp-for="AddPolicyDataReq.PolicyName" type="text" class="form-control col-sm-3" id="polName" placeholder="Enter Policy Name" required>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="polEffDate">Policy Effective Date</label>
+                    <input type="date" class="form-control" id="polEffDate" asp-for="AddPolicyDataReq.EffectiveDate" required>
+                </div>
+
+                
+                <div class="mb-3 col-auto">
+                    <label for="policySumm">Product Summary</label>
+                    <textarea asp-for="AddPolicyDataReq.ProductSummary" class="form-control" id="policySumm" required ></textarea>
+                </div>
+
+                 
+                <div class="mb-3">
+                    <label for="featuredImageUpload" class="form-label">Featured Image Upload</label>
+                    <input type="file" id="featuredImageUpload" asp-for="FeaturedImage" />
+                    <img src="" id="featuredImageDisplay" style="display:none; width:300px;" />
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="featuredImageUrl">Product Cover Image</label>
+                    <input asp-for="AddPolicyDataReq.FeaturedImageUrl" class="form-control" id="featuredImageUrl" required>
+
+                <div class="mb-3 col-auto">
+                    <label for="urlHandle" class="form-label">Image Url</label>
+                    <input type="text" asp-for="AddPolicyDataReq.UrlHandle" class="form-control" id="urlHandle" required>
+                    <span class="text-danger" asp-validation-for="AddPolicyDataReq.UrlHandle"></span>
+                </div>
+                <div class="mb-3 col-auto">
+                    <label for="policystatus">Policy Status</label>
+                    <input asp-for="AddPolicyDataReq.PolicyStatus" type="text" class="form-control" id="policystatus" placeholder="Enter Policy Status" required>
+                </div>
+
+                <div class="mb-3 col-auto">
+                    <label for="policyFeatures">Policy Features</label>
+                    <input asp-for="AddPolicyDataReq.Features" type="text" class="form-control" id="policyFeatures" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polTerm">Policy Term</label>
+                    <input asp-for="AddPolicyDataReq.Term" type="number" class="form-control" id="polOccupation" placeholder="Enter Term in Years" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polFrequency">Frequency</label>
+                    <input asp-for="AddPolicyDataReq.Frequency" type="number" class="form-control" id="polFrequency" placeholder="Enter Frequency" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polKeyBenefits">KeyBenefits</label>
+                    <input asp-for="AddPolicyDataReq.KeyBenefits" type="text" class="form-control" id="polKeyBenefits" placeholder="Enter KeyBenefits" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polMinAge">MinAge</label>
+                    <input asp-for="AddPolicyDataReq.MinAge" type="number" class="form-control" id="polMinAge" placeholder="Enter Min Age" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polMaxAge">Max Age</label>
+                    <input asp-for="AddPolicyDataReq.MaxAge" type="number" class="form-control" id="polMaxAge" placeholder="Enter Max Age" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polPlanType">Plan Type</label>
+                    <input asp-for="AddPolicyDataReq.PlanType" type="text" class="form-control" id="polPlanType" placeholder="Enter Plan Type" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="polSA">Sum Assured</label>
+                    <input asp-for="AddPolicyDataReq.SumAssured" type="number" class="form-control" id="polSA" placeholder="Enter Sum Assured" required>
+                </div>
+
+
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-secondary" type="reset">Reset</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-danger" onclick="history.back()">Cancel</button>
+                    </div>
+                </div>
+
+
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+@section Scripts
+{
+    <script> 
+        var editor = new FroalaEditor('#policySumm', {
+                imageUploadURL: '/api/images'
+            });
+
+            const featuredImageUploadElement = document.getElementById('featuredImageUpload');
+            const featuredImageUrl = document.getElementById('featuredImageUrl');
+            const featuredImageDisplay = document.getElementById('featuredImageDisplay');
+
+
+            async function uploadFeaturedImage(e) {
+                console.log(e.target.files[0]);
+
+                let data = new FormData();
+                data.append('file', e.target.files[0]);
+
+                await fetch('/api/images', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': '*/*',
+                    },
+                    body: data
+                }).then(response => response.json())
+                    .then(result => {
+                        featuredImageUrl.value = result.link;
+                        featuredImageDisplay.style.display = 'block';
+                        featuredImageDisplay.src = result.link;
+                    });
+            }
+
+            featuredImageUploadElement.addEventListener('change', uploadFeaturedImage);
+        </script>
+}

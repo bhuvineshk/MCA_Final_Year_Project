@@ -1,0 +1,157 @@
+﻿﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] InsuraNex</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/InsuraNex.styles.css" asp-append-version="true" />
+    <style>
+
+        button {
+            border: 1px solid white;
+            background: white;
+            transition: .4s all;
+        }
+
+
+            button:hover {
+                background-image: none;
+                transform: scale(1.1);
+                font-weight: bold;
+            }
+
+        #regButton:hover {
+            border: 1px solid white;
+        }
+
+        #loginButton:hover {
+            border: 1px solid green;
+        }
+
+        #logoutButton:hover {
+            border: 1px solid red;
+            background-color: red;
+            background: red;
+            background-image: none;
+        }
+    </style>
+
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-brand bg-dark bg-gradient ">
+            <div class="container py-2">
+                <a class="navbar-brand text-white" asp-area="" asp-page="/Index">Insuranex</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse text-white collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item ">
+                            <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-white dropdown-toggle"
+                                   href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false" id="navbardropdown_admin">Admin</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbardropdown_admin">
+
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Admin/Data/AddData">
+                                            Add Customer Data
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Admin/Data/List">
+                                            Show Customer List
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Admin/Data/AddPolicyData">
+                                            Add Policy Data
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Admin/Data/List_Policy">
+                                            Show Policy List
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        }
+
+                    </ul>
+
+                    <div>
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <div class="me-3 text-light">
+                                @User?.Identity?.Name
+
+
+                                <a href="/Logout" class="btn btn-danger text-white me-3" id="logoutButton">Logout</a>
+
+                            </div>
+                        }
+                        else
+                        {
+
+                            @* <button href="~/Login" class="btn btn-success text-white me-3" id="loginButton">Login</button> *@
+                            <a href="/Login"><button type="button" id="loginButton" class="btn btn-success">Login</button></a>
+
+                            <a href="/register"><button type="button" id="regButton" class="btn btn-warning">Register</button></a>
+
+
+                            @* <button><a href="/register" class="btn" id="regButton">Register</a></button> *@
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+        @*
+        <div class="mb-3 py-md-3">
+        <img src="https://res.cloudinary.com/dizlfnbr4/image/upload/v1722454509/Designer_pcrlid.png"
+        class="img-fluid" alt="Sample image">
+        </div> *@
+
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Insurance Agent - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

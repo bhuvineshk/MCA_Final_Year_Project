@@ -1,0 +1,55 @@
+﻿@page
+@using InsuraNex.Pages
+@model LoginModel
+@{
+}
+
+
+
+
+<partial name="_Notification">
+
+    
+
+    <div class="container mx-auto">
+        <h1 class="mt-5 mb-3 h3">Login</h1>
+        <div class="row justify-content-center">
+
+
+            <div class="col-lg-6">
+
+                
+                <br/>
+               
+
+                
+                <form method="post">
+
+                   @*  <div>
+                        <img src="https://res.cloudinary.com/dizlfnbr4/image/upload/c_thumb,w_200,g_face/v1722450726/computer-security-with-login-password-padlock_acdh4m.png"
+                             class="img-fluid" alt="Sample image">
+                    </div> *@
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input autofocus type="text" class="form-control w-50 p-1" asp-for="LoginViewModel.Username" required />
+                        <span asp-validation-for="LoginViewModel.Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                            <br />
+                        <input type="password" class="form-contorol w-50 p-1" asp-for="LoginViewModel.Password" required />
+                         <br />
+                        <span asp-validation-for="LoginViewModel.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn bg-dark text-light">Login</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
