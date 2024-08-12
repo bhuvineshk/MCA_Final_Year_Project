@@ -27,13 +27,13 @@
                     <input type="date" class="form-control" id="polEffDate" asp-for="AddPolicyDataReq.EffectiveDate" required>
                 </div>
 
-                
+
                 <div class="mb-3 col-auto">
                     <label for="policySumm">Product Summary</label>
-                    <textarea asp-for="AddPolicyDataReq.ProductSummary" class="form-control" id="policySumm" required ></textarea>
+                    <textarea asp-for="AddPolicyDataReq.ProductSummary" class="form-control" id="policySumm" required></textarea>
                 </div>
 
-                 
+
                 <div class="mb-3">
                     <label for="featuredImageUpload" class="form-label">Featured Image Upload</label>
                     <input type="file" id="featuredImageUpload" asp-for="FeaturedImage" />
@@ -41,11 +41,12 @@
                 </div>
 
                 <div class="mb-3 col-auto">
-                    <label for="featuredImageUrl">Product Cover Image</label>
+                    <label for="featuredImageUrl">Product Cover Image URL</label>
                     <input asp-for="AddPolicyDataReq.FeaturedImageUrl" class="form-control" id="featuredImageUrl" required>
+                </div>
 
                 <div class="mb-3 col-auto">
-                    <label for="urlHandle" class="form-label">Image Url</label>
+                    <label for="urlHandle" class="form-label">URL Handle</label>
                     <input type="text" asp-for="AddPolicyDataReq.UrlHandle" class="form-control" id="urlHandle" required>
                     <span class="text-danger" asp-validation-for="AddPolicyDataReq.UrlHandle"></span>
                 </div>
@@ -117,10 +118,10 @@
     </div>
 
 
-@section Scripts
-{
-    <script> 
-        var editor = new FroalaEditor('#policySumm', {
+    @section Scripts
+    {
+        <script>
+            var editor = new FroalaEditor('#policySumm', {
                 imageUploadURL: '/api/images'
             });
 
@@ -151,4 +152,4 @@
 
             featuredImageUploadElement.addEventListener('change', uploadFeaturedImage);
         </script>
-}
+    }

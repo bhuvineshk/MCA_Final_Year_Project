@@ -5,10 +5,10 @@ namespace InsuraNex.Repositories
 {
     public class PolicyOpsRepository(RazorPagesDBContext razorPagesDBContext) : IPolicyOpsRepository
     {
-        public async Task<InsurancePlans> AddAsync(InsurancePlans insurance)
+        public  async Task<InsurancePlans> AddAsync(InsurancePlans insurance)
         {
             razorPagesDBContext.PolicyInformation.AddAsync(insurance);
-            razorPagesDBContext.SaveChanges();
+            razorPagesDBContext.SaveChangesAsync();
 
             return insurance;
         }
