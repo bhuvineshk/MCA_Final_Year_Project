@@ -1,5 +1,8 @@
 ﻿@page
 @model InsuraNex.Pages.Admin.Data.AddPolicyDataModel
+@{
+
+}
 @using static InsuraNex.Pages.Shared._NotificationModel
 
 <div class="bg-secondary bg-opacity-10 mb-5 py-3">
@@ -40,16 +43,20 @@
                     <img src="" id="featuredImageDisplay" style="display:none; width:300px;" />
                 </div>
 
-                <div class="mb-3 col-auto">
-                    <label for="featuredImageUrl">Product Cover Image URL</label>
-                    <input asp-for="AddPolicyDataReq.FeaturedImageUrl" class="form-control" id="featuredImageUrl" required>
+                <div class="mb-3">
+                    <label for="featuredImageUrl" class="form-label">Featured Image Url</label>
+                    <input type="text" required class="form-control" id="featuredImageUrl" asp-for="AddPolicyDataReq.FeaturedImageUrl">
+                    <span class="text-danger" asp-validation-for="AddPolicyDataReq.FeaturedImageUrl"></span>
+
                 </div>
 
-                <div class="mb-3 col-auto">
-                    <label for="urlHandle" class="form-label">URL Handle</label>
-                    <input type="text" asp-for="AddPolicyDataReq.UrlHandle" class="form-control" id="urlHandle" required>
+                <div class="mb-3">
+                    <label for="urlHandle" class="form-label">Url Handle</label>
+                    <input type="text" required class="form-control" id="urlHandle" asp-for="AddPolicyDataReq.UrlHandle">
                     <span class="text-danger" asp-validation-for="AddPolicyDataReq.UrlHandle"></span>
+
                 </div>
+                
                 <div class="mb-3 col-auto">
                     <label for="policystatus">Policy Status</label>
                     <input asp-for="AddPolicyDataReq.PolicyStatus" type="text" class="form-control" id="policystatus" placeholder="Enter Policy Status" required>
@@ -118,12 +125,13 @@
     </div>
 
 
-    @section Scripts
-    {
+
+    @section Scripts {
         <script>
             var editor = new FroalaEditor('#policySumm', {
                 imageUploadURL: '/api/images'
             });
+
 
             const featuredImageUploadElement = document.getElementById('featuredImageUpload');
             const featuredImageUrl = document.getElementById('featuredImageUrl');

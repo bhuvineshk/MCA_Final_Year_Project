@@ -40,7 +40,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddScoped<ICustomerOpsRepository, CustomerOpsRepository>();
 builder.Services.AddScoped<IPolicyOpsRepository, PolicyOpsRepository>();
-builder.Services.AddScoped<IImageRepository, ImageRepositoryCloudinary>();
+builder.Services.AddScoped<IImageRepository, ImageRepository>();
 
 var app = builder.Build();
 
@@ -60,5 +60,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();

@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
-using InsuraNex.Data;
 using InsuraNex.Models.Domain;
 using InsuraNex.Models.ViewModels;
 using InsuraNex.Repositories;
 using Microsoft.AspNetCore.Authorization;
+
 
 namespace InsuraNex.Pages.Admin.Data
 {
@@ -18,7 +18,7 @@ namespace InsuraNex.Pages.Admin.Data
         public AddPolicyData AddPolicyDataReq { get; set; }
         
         [BindProperty]
-        public AddPolicyData FeaturedImage { get; set; }
+        public IFormFile FeaturedImage { get; set; }
 
         public AddPolicyDataModel(IPolicyOpsRepository policyOpsRepository)
         {

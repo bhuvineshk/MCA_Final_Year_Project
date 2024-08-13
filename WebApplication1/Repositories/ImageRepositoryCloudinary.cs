@@ -2,12 +2,12 @@
 
 namespace InsuraNex.Repositories
 {
-    public class ImageRepositoryCloudinary : IImageRepository
+    public class ImageRepository : IImageRepository
     {
 
         private readonly Account account;
 
-        public ImageRepositoryCloudinary(IConfiguration configuration)
+        public ImageRepository(IConfiguration configuration)
         {
             account = new Account(configuration.GetSection("Cloudinary")["CloudName"],
                 configuration.GetSection("Cloudinary")["ApiKey"],
