@@ -1,5 +1,6 @@
 ﻿using InsuraNex.Data;
 using InsuraNex.Models.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace InsuraNex.Repositories
 {
@@ -40,8 +41,16 @@ namespace InsuraNex.Repositories
 
         public async Task<InsurancePlans> GetAsync(Guid id)
         {
-            return razorPagesDBContext.PolicyInformation.Find(id);
+            return  razorPagesDBContext.PolicyInformation.Find(id);
         }
+
+
+
+        public async Task<InsurancePlans> GetAsync(string urlHandle)
+        {
+            return  razorPagesDBContext.PolicyInformation.FirstOrDefault(x => x.UrlHandle == urlHandle);
+        }
+
 
         public async Task<InsurancePlans> UpdateAsync(InsurancePlans insurance)
         {

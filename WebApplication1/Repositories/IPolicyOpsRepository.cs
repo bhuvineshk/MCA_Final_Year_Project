@@ -7,6 +7,7 @@ namespace InsuraNex.Repositories
         Task<IEnumerable<InsurancePlans>> GetAllAsync();
         Task<InsurancePlans> GetAsync(Guid id);
         Task<InsurancePlans> AddAsync(InsurancePlans insurancePlan);
+        Task<InsurancePlans> GetAsync(string urlHandle);
         Task<InsurancePlans> UpdateAsync(InsurancePlans insurancePlan);
         Task<bool> DeleteAsync(Guid id);
     }

@@ -40,8 +40,10 @@
 
                 <div class="mb-3">
                     <label for="featuredImageUpload" class="form-label">Featured Image Upload</label>
-                    <input type="file" id="featuredImageUpload" asp-for="FeaturedImage" readonly />
+                    @* <input type="file" id="featuredImageUpload" asp-for="FeaturedImage" readonly /> *@
                     <img src="" id="featuredImageDisplay" style="display:none; width:300px;" />
+                    <img src="insurance.FeaturedImageUrl" style="display:none; width:300px;" />
+
                 </div>
 
                 <div class="mb-3 col-auto">

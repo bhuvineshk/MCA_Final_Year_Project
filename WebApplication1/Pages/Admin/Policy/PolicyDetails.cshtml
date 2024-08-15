@@ -1,0 +1,46 @@
+﻿@page "/policy/{urlHandle}"
+@model Insuranex.Pages.Admin.Policy.PolicyDetailsModel
+@{
+}
+
+
+@if (Model.InsurancePlan != null)
+{
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+
+          
+                @{
+                    ViewData["Title"] = Model.InsurancePlan.PolicyName;
+                }
+
+                <h1 class="mb-3">@Model.InsurancePlan.PolicyName</h1>
+
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="text-secondary">@Model.InsurancePlan.Features</span>
+                    <span class="text-secondary">@Model.InsurancePlan.EffectiveDate.ToShortDateString()</span>
+
+                    <img src="@Model.InsurancePlan.FeaturedImageUrl" class="d-block img-fluid mb-3" />
+
+                    <div class="mb-3 blog-details">
+                        @Html.Raw(Model.InsurancePlan.ProductSummary)
+                    </div>
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+else
+{
+    <div class="container mt-3">
+        <h2>Policy data not found!</h2>
+    </div>
+}

@@ -23,9 +23,9 @@
                 </div>
 
 
-                    <div class="col-4 mb-4">
+                  @*   <div class="col-4 mb-4">
                         <button class="btn btn-danger" onclick="history.back()">Back</button>
-                    </div>
+                    </div> *@
                     <div class="mb-3">
                         <label for="polName">Policy Name</label>
                         <input asp-for="insurance.PolicyName" type="text" class="form-control col-sm-3" id="polName" placeholder="Enter Policy Name" required>
@@ -50,11 +50,11 @@
                     </div>
 
                     <div class="mb-3 col-auto">
-                        <label for="featuredImageUrl">Product Cover Image</label>
+                        <label for="featuredImageUrl">Image Url</label>
                         <input asp-for="insurance.FeaturedImageUrl" class="form-control" id="featuredImageUrl" required>
 
                         <div class="mb-3 col-auto">
-                            <label for="urlHandle" class="form-label">Image Url</label>
+                            <label for="urlHandle" class="form-label">Url Handle</label>
                             <input type="text" asp-for="insurance.UrlHandle" class="form-control" id="urlHandle" required>
                             <span class="text-danger" asp-validation-for="insurance.UrlHandle"></span>
                         </div>

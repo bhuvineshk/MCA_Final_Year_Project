@@ -17,7 +17,7 @@
     {
         <div class="container" method="get">
             <table class="table-bordered col-md-9">
-                <caption>List of users</caption>
+                <caption>List of Policies</caption>
                 <thead>
                     <tr class="bg-primary  text-center">
                         <td>PolicyName</td>
@@ -25,6 +25,7 @@
                         <td>SumAssured</td>
                         <td>Term</td>
                         <td>EffectiveDate</td>
+                        <td> </td>
 
                     </tr>
                 </thead>
@@ -42,6 +43,11 @@
                             <td>@insurance.SumAssured</td>
                             <td>@insurance.Term</td>
                             <td>@insurance.EffectiveDate</td>
+                            <td>
+                                <a href="/Admin/Data/View_Policy/@insurance.Id">
+                                    View
+                                </a>
+                            </td>
 
                         </tr>
                     }
