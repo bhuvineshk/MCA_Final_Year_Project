@@ -3,6 +3,13 @@
 @{
 }
 
+<style>
+    img {
+        border: 2px solid black;
+        border-radius: 8px;
+        max-width: 100%
+    }
+</style>
 
 @if (Model.InsurancePlan != null)
 {
@@ -18,19 +25,20 @@
                 <h1 class="mb-3">@Model.InsurancePlan.PolicyName</h1>
 
                 <div class="d-flex justify-content-between mb-3">
+                    
                     <span class="text-secondary">@Model.InsurancePlan.Features</span>
-                    <span class="text-secondary">@Model.InsurancePlan.EffectiveDate.ToShortDateString()</span>
-
-                    <img src="@Model.InsurancePlan.FeaturedImageUrl" class="d-block img-fluid mb-3" />
-
-                    <div class="mb-3 blog-details">
-                        @Html.Raw(Model.InsurancePlan.ProductSummary)
-                    </div>
-                    }
-
-
-
+                    
                 </div>
+                <span class="text-secondary">@Model.InsurancePlan.EffectiveDate.ToShortDateString()</span>
+
+                <img src="@Model.InsurancePlan.FeaturedImageUrl" />
+
+                <div class="mb-3 blog-details">
+                    @Html.Raw(Model.InsurancePlan.ProductSummary)
+                </div>
+                }
+
+
             </div>
         </div>
     </div>
