@@ -67,6 +67,12 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="custEmail">Email Id</label>
+                    <input asp-for="Customers.EmailAddress" type="email" class="form-control" id="custEmail" placeholder="Enter Email Id" readonly>
+                </div>
+
+
+                <div class="mb-3">
                     <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
                 </div>
 

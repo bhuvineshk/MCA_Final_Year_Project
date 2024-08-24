@@ -32,17 +32,18 @@
                 </div>
 
 
-                <div class="mb-3 col-auto">
+                <div class="mb-3 col-auto" style="border-block-color:black">
                     <label for="policySumm">Product Summary</label>
-                    <textarea asp-for="insurance.ProductSummary" class="form-control" id="policySumm" readonly required></textarea>
+                   @*  <textarea asp-for="insurance.ProductSummary" class="form-control" id="policySumm" readonly required></textarea> *@
+                    @Html.Raw(Model.insurance.ProductSummary)
                 </div>
 
 
                 <div class="mb-3">
                     <label for="featuredImageUpload" class="form-label">Featured Image Upload</label>
-                    @* <input type="file" id="featuredImageUpload" asp-for="FeaturedImage" readonly /> *@
-                    <img src="" id="featuredImageDisplay" style="display:none; width:300px;" />
-                    <img src="insurance.FeaturedImageUrl" style="display:none; width:300px;" />
+                    
+                    <img src="insurance.FeaturedImageUrl" class="rounded mx-auto d-block" >
+                    
 
                 </div>
 
@@ -101,8 +102,9 @@
                     </div>
 
 
-                <div class="mb-3">
-                    <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
+
                 </div>
 
             </form>

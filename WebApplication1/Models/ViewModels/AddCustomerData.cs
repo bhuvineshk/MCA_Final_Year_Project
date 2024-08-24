@@ -1,4 +1,6 @@
-﻿namespace InsuraNex.Models.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace InsuraNex.Models.ViewModels
 {
     public class AddCustomerData
     {
@@ -20,5 +22,9 @@
         public string City { get; set; }
 
         public string Contact_No { get; set; }
+
+        [EmailAddress]
+        public string EmailAddress { get; set; }
+
     }
 }

@@ -62,7 +62,11 @@
                     <input asp-for="AddCustomerDataReq.Contact_No" type="text" class="form-control" id="custContact" placeholder="Enter Contact No" required>
                 </div>
                 
-               
+                <div class="mb-3">
+                    <label for="custEmail">Email Id</label>
+                    <input asp-for="AddCustomerDataReq.EmailAddress" type="email" class="form-control" id="custEmail" placeholder="Enter Email Id" required>
+                </div>
+
                 <div class="row justify-content-center">
                     <div class="col-4">
                         <button class="btn btn-primary" type="submit">Submit</button>

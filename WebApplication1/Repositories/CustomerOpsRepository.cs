@@ -66,6 +66,7 @@ namespace InsuraNex.Repositories
                 existingCustomer.City = customer.City;
                 existingCustomer.Income = customer.Income;
                 existingCustomer.Contact_No = customer.Contact_No;
+                existingCustomer.EmailAddress = customer.EmailAddress;
             }
 
              razorPagesDBContext.SaveChanges();

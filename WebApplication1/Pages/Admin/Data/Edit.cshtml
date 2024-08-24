@@ -13,75 +13,80 @@
 
 
 
-@if (Model.Customers != null)
-{
-    <div>
-        <div class="container col-md-6 col-md-offset-6">
-            <form method="post">
-                <div class="mb-3">
-                    <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
-                </div>
+    @if (Model.Customers != null)
+    {
+        <div>
+            <div class="container col-md-6 col-md-offset-6">
+                <form method="post">
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
+                    </div>
 
 
-                <div class="mb-3">
-                    <label for="custName">Name</label>
-                    <input asp-for="Customers.Name" type="text" class="form-control col-sm-3" id="custName" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="custName">Name</label>
+                        <input asp-for="Customers.Name" type="text" class="form-control col-sm-3" id="custName" required>
+                    </div>
 
-                <div class="mb-3 col-auto">
-                    <label for="custDOB">Date of Birth</label>
-                    <input type="date" class="form-control" id="custDOB" asp-for="Customers.DOB" required>
-                </div>
+                    <div class="mb-3 col-auto">
+                        <label for="custDOB">Date of Birth</label>
+                        <input type="date" class="form-control" id="custDOB" asp-for="Customers.DOB" required>
+                    </div>
 
-                <div class="mb-3 col-auto">
-                    <label for="policyDOC">Date of Commencement</label>
-                    <input asp-for="Customers.DOC" type="date" class="form-control" id="policyDOC" required>
-                </div>
+                    <div class="mb-3 col-auto">
+                        <label for="policyDOC">Date of Commencement</label>
+                        <input asp-for="Customers.DOC" type="date" class="form-control" id="policyDOC" required>
+                    </div>
 
-                <div class="mb-3 col-auto">
-                    <label for="policyName">Policy Plan Name</label>
-                    <input asp-for="Customers.Plan" type="text" class="form-control" id="policyName" required>
-                </div>
+                    <div class="mb-3 col-auto">
+                        <label for="policyName">Policy Plan Name</label>
+                        <input asp-for="Customers.Plan" type="text" class="form-control" id="policyName" required>
+                    </div>
 
-                <div class="mb-3 col-auto">
-                    <label for="policyExpirationDate">Policy Expiration Date</label>
-                    <input asp-for="Customers.Plan_Exp_Date" type="date" class="form-control" id="policyExpirationDate" required>
-                </div>
+                    <div class="mb-3 col-auto">
+                        <label for="policyExpirationDate">Policy Expiration Date</label>
+                        <input asp-for="Customers.Plan_Exp_Date" type="date" class="form-control" id="policyExpirationDate" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="custOccupation">Occupation</label>
-                    <input asp-for="Customers.Occupation" type="text" class="form-control" id="custOccupation" placeholder="Enter Occupation" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="custOccupation">Occupation</label>
+                        <input asp-for="Customers.Occupation" type="text" class="form-control" id="custOccupation" placeholder="Enter Occupation" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="custIncome">Annual Income</label>
-                    <input asp-for="Customers.Income" type="number" class="form-control" id="custIncome" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="custIncome">Annual Income</label>
+                        <input asp-for="Customers.Income" type="number" class="form-control" id="custIncome" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="custCity">City</label>
-                    <input asp-for="Customers.City" type="text" class="form-control" id="custCity" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="custCity">City</label>
+                        <input asp-for="Customers.City" type="text" class="form-control" id="custCity" required>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="custContact">Contact No</label>
-                    <input asp-for="Customers.Contact_No" type="text" class="form-control" id="custContact" placeholder="Enter Contact No" required>
-                </div>
+                    <div class="mb-3">
+                        <label for="custContact">Contact No</label>
+                        <input asp-for="Customers.Contact_No" type="text" class="form-control" id="custContact" placeholder="Enter Contact No" required>
+                    </div>
 
-                <div class="mb-5">
-                    <button class="btn btn-success mb-5" type="submit" asp-page-handler="Update">Update</button>
+                    <div class="mb-3">
+                        <label for="custEmail">Email Id</label>
+                        <input asp-for="Customers.EmailAddress" type="email" class="form-control" id="custEmail" placeholder="Enter Email Id" required>
+                    </div>
 
-                    <button class="btn btn-danger mb-5" onclick="return confirm('Are you sure you want to delete this?')" type="submit" asp-page-handler="DeleteRecord">Delete</button>
-                </div>
+                    <div class="mb-5">
+                        <button class="btn btn-success mb-5" type="submit" asp-page-handler="Update">Update</button>
 
-          
+                        <button class="btn btn-danger mb-5" onclick="return confirm('Are you sure you want to delete this?')" type="submit" asp-page-handler="DeleteRecord">Delete</button>
+                    </div>
 
 
 
 
-            </form>
+
+
+                </form>
+
+            </div>
 
         </div>
-
-    </div>
-}
+    }

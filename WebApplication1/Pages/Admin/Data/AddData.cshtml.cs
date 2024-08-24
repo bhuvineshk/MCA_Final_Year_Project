@@ -37,7 +37,8 @@ namespace InsuraNex.Pages.Admin.Data
                 Occupation = AddCustomerDataReq.Occupation,
                 Income = AddCustomerDataReq.Income,
                 City = AddCustomerDataReq.City,
-                Contact_No = AddCustomerDataReq.Contact_No
+                Contact_No = AddCustomerDataReq.Contact_No,
+                EmailAddress = AddCustomerDataReq.EmailAddress
 
             };
 

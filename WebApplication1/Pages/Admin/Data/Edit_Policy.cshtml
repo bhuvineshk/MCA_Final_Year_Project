@@ -65,7 +65,7 @@
 
                         <div class="mb-3 col-auto">
                             <label for="policyFeatures">Policy Features</label>
-                            <input asp-for="insurance.Features" type="text" class="form-control" id="policyFeatures" required>
+                            <textarea asp-for="insurance.Features" type="text" class="form-control" id="policyFeatures" required></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -80,7 +80,7 @@
 
                         <div class="mb-3">
                             <label for="polKeyBenefits">KeyBenefits</label>
-                            <input asp-for="insurance.KeyBenefits" type="text" class="form-control" id="polKeyBenefits" placeholder="Enter KeyBenefits" required>
+                            <textarea asp-for="insurance.KeyBenefits" type="text" class="form-control" id="polKeyBenefits" placeholder="Enter KeyBenefits" required></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -130,6 +130,7 @@
             var editor = new FroalaEditor('#policySumm', {
                 imageUploadURL: '/api/images'
             });
+            
 
             const featuredImageUploadElement = document.getElementById('featuredImageUpload');
             const featuredImageUrl = document.getElementById('featuredImageUrl');

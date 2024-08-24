@@ -50,7 +50,8 @@
 </head>
 
 <body>
-    <header>
+
+    <header >
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-brand bg-dark bg-gradient ">
             <div class="container py-2">
                 <a class="navbar-brand text-white" asp-area="" asp-page="/Index">Insuranex</a>
@@ -101,9 +102,21 @@
                             </li>
 
                         }
+                        <li class="nav-item">
+                            @if (signInManager.IsSignedIn(User))
+                            {
+
+                                <a class="nav-link text-white" asp-area="" asp-page="/Calender">Business Planner</a>
+                               
+                            }
+                        </li>
+
 
                     </ul>
+               
+                       
 
+                 
                     <div>
                         @if (signInManager.IsSignedIn(User))
                         {
@@ -118,35 +131,32 @@
                         else
                         {
 
-                            @* <button href="~/Login" class="btn btn-success text-white me-3" id="loginButton">Login</button> *@
-                            <a href="/Login"><button type="button" id="loginButton" class="btn btn-success">Login</button></a>
+                         <a href="/Login"><button type="button" id="loginButton" class="btn btn-success">Login</button></a>
 
                             <a href="/register"><button type="button" id="regButton" class="btn btn-warning">Register</button></a>
 
 
-                            @* <button><a href="/register" class="btn" id="regButton">Register</a></button> *@
                         }
-                    </div>
+                 </div>
                 </div>
             </div>
         </nav>
     </header>
 
+  
+
     <main role="main" class="pb-3">
         @RenderBody()
-        @*
-        <div class="mb-3 py-md-3">
-        <img src="https://res.cloudinary.com/dizlfnbr4/image/upload/v1722454509/Designer_pcrlid.png"
-        class="img-fluid" alt="Sample image">
-        </div> *@
 
     </main>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted mb-1">
         <div class="container">
             &copy; 2024 - Insurance Agent - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
+
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
