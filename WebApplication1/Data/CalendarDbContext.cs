@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Insuranex.Data
 {
@@ -16,5 +17,6 @@ namespace Insuranex.Data
         public DateTime End { get; set; }
         public string Text { get; set; }
         public string? Color { get; set; }
+
     }
 }

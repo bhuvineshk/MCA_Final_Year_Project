@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Threading.Tasks;
 using Insuranex.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +17,7 @@ namespace Insuranex.Controllers
     public class EventsController : ControllerBase
     {
         private readonly CalendarDbContext _context;
-
+       
         public EventsController(CalendarDbContext context)
         {
             _context = context;
