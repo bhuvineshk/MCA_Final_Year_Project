@@ -38,7 +38,7 @@ namespace InsuraNex.Pages
                     {
                         return RedirectToPage(ReturnUrl);
                     }
-                    return RedirectToPage("Index");
+                    return RedirectToPage("LandingPage");
                 }
                 else
                 {
