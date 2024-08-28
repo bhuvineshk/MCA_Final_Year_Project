@@ -8,7 +8,7 @@ using InsuraNex.Models.ViewModels;
 
 namespace InsuraNex.Pages.Admin.Data
 {
-    [Authorize(Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     public class View_PolicyModel : PageModel
     {
         private readonly IPolicyOpsRepository policyOpsRepository;

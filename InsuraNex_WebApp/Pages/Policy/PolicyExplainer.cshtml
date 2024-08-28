@@ -1,6 +1,55 @@
 ﻿@page
 @model Insuranex.Pages.Policy.PolicyExplainerModel
 
+@{
+    ViewData["Title"] = "Product Explainer";
+}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LiZEnkga3Gk?si=Lf3OWYjWfwdUcRLO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<style>
+    img {
+        border: 2px solid black;
+        border-radius: 8px;
+        max-width: 100%
+    }
+</style>
+
+@if(Model.InsurancePlans != null)
+{
+    @foreach (var insurance in Model.InsurancePlans)
+    {
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6">
+
+
+             
+                <h1 class="mb-3">@insurance.PolicyName</h1>
+                    <br />
+                <div class="d-flex justify-content-between mb-3">
+                        <br />
+                    <span class="text-secondary">@insurance.Features</span>
+
+                </div>
+
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/LiZEnkga3Gk?si=sILbGYfBdUdQRppe" title="YouTube video player"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+
+                    <br/>
+                    <br />
+                    <br />
+            </div>
+        </div>
+    </div>
+    }
+
+
+
+}
+else
+{
+    <div class="container mt-3">
+        <h2>Policy data not found!</h2>
+    </div>
+}

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace InsuraNex.Pages.Admin.Data
 {
-    [Authorize(Roles = "Admin")]
+  //  [Authorize(Roles = "Admin")]
     public class List_PolicyModel : PageModel
     {
       

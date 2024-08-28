@@ -1,5 +1,9 @@
 ﻿@page "{Id:Guid}"
+@using Microsoft.AspNetCore.Identity
 @model InsuraNex.Pages.Admin.Data.View_PolicyModel
+@inject SignInManager<IdentityUser> signInManager
+
+
 @{
 
 }
@@ -17,8 +21,11 @@
             <form method="post">
                 <div class="mb-3">
                     <button class="btn btn-primary" type="submit" asp-page-handler="BackToList">Back</button>
-                
-                    <button class="btn btn-warning" type="submit" asp-page-handler="EditCustomer">Edit</button>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+
+                        <button class="btn btn-warning" type="submit" asp-page-handler="EditCustomer">Edit</button>
+                    }
                 </div>
 
                 <div class="mb-3">
